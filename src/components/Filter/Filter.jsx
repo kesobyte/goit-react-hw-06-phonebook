@@ -1,10 +1,16 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import css from './Filter.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilter } from '../../redux/filterSlice';
+import { getFilter } from '../../redux/selectors';
 
-export const Filter = ({ filter, setFilter }) => {
+export const Filter = () => {
   //Filtering
+  const dispatch = useDispatch();
+  const filter = useSelector(getFilter);
+
   const handleFilterChange = e => {
-    setFilter(e.target.value);
+    dispatch(setFilter(e.target.value));
   };
 
   return (
@@ -22,7 +28,7 @@ export const Filter = ({ filter, setFilter }) => {
   );
 };
 
-Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  setFilter: PropTypes.func.isRequired,
-};
+// Filter.propTypes = {
+//   filter: PropTypes.string.isRequired,
+//   setFilter: PropTypes.func.isRequired,
+// };

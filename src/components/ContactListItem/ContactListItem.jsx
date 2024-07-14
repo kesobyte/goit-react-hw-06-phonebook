@@ -26,5 +26,4 @@ export const ContactListItem = ({ filteredContact }) => {
 
 ContactListItem.propTypes = {
   filteredContact: PropTypes.object.isRequired,
-  deleteContact: PropTypes.func.isRequired,
 };
